@@ -1,26 +1,32 @@
-<!doctype html>
-<html dir="ltr" lang="en" 
-    >
-<head>
-  <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krishna Kushwaha Resume</title>
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      object {
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        position: fixed;
+      }
+    </style>
+<!--     <object type="application/pdf" data="Krishna_Resume.pdf">
+      <p><a href="">CLICK ON THIS LINK TO GET RESUME </a></p>
+    </object> -->
 
-  <link rel="stylesheet" href="chrome://resources/css/text_defaults_md.css">
-  <link rel="stylesheet" href="index.css">
-
-  <style>
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      width: 100%;
-    }
-  </style>
-</head>
-<body>
-<pdf-viewer id="viewer"></pdf-viewer>
-</body>
-<script type="module" src="main.js"></script>
-<script type="module" src="pdf_viewer_wrapper.js"></script>
+    <object data="Krishna_Resume.pdf" type="application/pdf" frameborder="0" width="100%" height="600px">
+    <embed src="Krishna_Resume.pdf" width="100%" height="600px"/> 
+</object>
+     
+  </body>
 </html>

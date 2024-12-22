@@ -17,25 +17,51 @@
         align-items: center;
         flex-direction: column;
       }
-      .fallback-link {
+      .fallback {
+        display: none; /* Initially hidden */
+        text-align: center;
+      }
+      .fallback a {
         margin-top: 10px;
         font-size: 16px;
         text-decoration: none;
         color: #007bff;
       }
-      .fallback-link:hover {
+      .fallback a:hover {
         text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <div class="pdf-container">
-      <object type="application/pdf" data="Krishna_Resume.pdf" width="100%" height="100%">
-        <p>
-          Unable to display the resume. 
-          <a href="Krishna_Resume.pdf" class="fallback-link" download>Download the resume</a>
-        </p>
+      <object 
+        id="pdf-object" 
+        type="application/pdf" 
+        data="Krishna_Resume.pdf" 
+        width="100%" 
+        height="100%">
       </object>
+      <div class="fallback" id="fallback-message">
+        <p>Unable to display the resume.</p>
+        <a href="Krishna_Resume.pdf" download>Download the resume</a>
+      </div>
     </div>
+    <script>
+      // JavaScript to handle the fallback display
+      const pdfObject = document.getElementById('pdf-object');
+      const fallbackMessage = document.getElementById('fallback-message');
+
+      pdfObject.addEventListener('error', () => {
+        // Show fallback message if the PDF fails to load
+        fallbackMessage.style.display = 'block';
+      });
+
+      // Check if the object fails on load (for some mobile browsers)
+      pdfObject.onload = () => {
+        if (!pdfObject.contentDocument) {
+          fallbackMessage.style.display = 'block';
+        }
+      };
+    </script>
   </body>
 </html>

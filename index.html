@@ -1,60 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Krishna Kushwaha Resume</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      #pdf-viewer {
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #f5f5f5;
-      }
-      canvas {
-        max-width: 100%;
-        max-height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="pdf-viewer">
-      <canvas id="pdf-canvas"></canvas>
-    </div>
-    <script>
-      const url = "Krishna_Resume.pdf"; // Path to your PDF
+<!doctype html>
+<html dir="ltr" lang="en" 
+    >
+<head>
+  <meta charset="utf-8">
 
-      const pdfjsLib = window['pdfjs-dist/build/pdf'];
-      pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+  <link rel="stylesheet" href="chrome://resources/css/text_defaults_md.css">
+  <link rel="stylesheet" href="index.css">
 
-      const canvas = document.getElementById("pdf-canvas");
-      const ctx = canvas.getContext("2d");
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
 
-      pdfjsLib.getDocument(url).promise.then(pdf => {
-        pdf.getPage(1).then(page => {
-          const viewport = page.getViewport({ scale: 1 });
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-
-          const renderContext = {
-            canvasContext: ctx,
-            viewport: viewport,
-          };
-
-          page.render(renderContext);
-        });
-      }).catch(err => {
-        console.error("Error loading PDF: ", err);
-        document.getElementById("pdf-viewer").innerHTML = `<p>Unable to load PDF. <a href="${url}">Click here to download it.</a></p>`;
-      });
-    </script>
-  </body>
+    body {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+<pdf-viewer id="viewer"></pdf-viewer>
+</body>
+<script type="module" src="main.js"></script>
+<script type="module" src="pdf_viewer_wrapper.js"></script>
 </html>

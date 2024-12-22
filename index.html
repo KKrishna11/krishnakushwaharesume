@@ -6,62 +6,39 @@
     <title>Krishna Kushwaha Resume</title>
     <style>
       body {
-        margin: 0;
-        padding: 0;
-      }
-      .pdf-container {
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-      .fallback {
-        display: none; /* Initially hidden */
+        font-family: Arial, sans-serif;
         text-align: center;
+        padding: 20px;
       }
-      .fallback a {
-        margin-top: 10px;
-        font-size: 16px;
+      .resume-link {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
         text-decoration: none;
-        color: #007bff;
+        border-radius: 5px;
       }
-      .fallback a:hover {
-        text-decoration: underline;
+      .resume-link:hover {
+        background-color: #0056b3;
       }
     </style>
   </head>
   <body>
-    <div class="pdf-container">
-      <object 
-        id="pdf-object" 
-        type="application/pdf" 
-        data="Krishna_Resume.pdf" 
-        width="100%" 
-        height="100%">
-      </object>
-      <div class="fallback" id="fallback-message">
-        <p>Unable to display the resume.</p>
-        <a href="Krishna_Resume.pdf" download>Download the resume</a>
-      </div>
-    </div>
-    <script>
-      // JavaScript to handle the fallback display
-      const pdfObject = document.getElementById('pdf-object');
-      const fallbackMessage = document.getElementById('fallback-message');
-
-      pdfObject.addEventListener('error', () => {
-        // Show fallback message if the PDF fails to load
-        fallbackMessage.style.display = 'block';
-      });
-
-      // Check if the object fails on load (for some mobile browsers)
-      pdfObject.onload = () => {
-        if (!pdfObject.contentDocument) {
-          fallbackMessage.style.display = 'block';
-        }
-      };
-    </script>
+    <h1>Krishna Kushwaha Resume</h1>
+    <p>
+      Click the button below to view or download the resume:
+    </p>
+    <a
+      href="https://drive.google.com/file/d/1SAHurMHFTbIa7TFCY3c5r2V5aeXTTDMa/view?usp=sharing"
+      target="_blank"
+      class="resume-link"
+    >
+      View Resume
+    </a>
+    <p>
+      If the resume doesn't open, 
+      <a href="Krishna_Resume.pdf" download>download it here</a>.
+    </p>
   </body>
 </html>
